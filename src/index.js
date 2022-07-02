@@ -10,7 +10,7 @@ function formatTime(now) {
     "Thursday",
     "Friday",
     "Saturday",
-    "Sunday"
+    "Sunday",
   ];
   let day = days[now.getDay()];
   let min = now.getMinutes();
