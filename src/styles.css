@@ -1,0 +1,102 @@
+body {
+  font-family: Cerebri Sans, Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: bold;
+  padding: 15px 0 0 15px;
+  text-align: center;
+}
+h2 {
+  text-align: center;
+  font-size: 15px;
+}
+
+form {
+  text-align: center;
+}
+input {
+  border-radius: 4px;
+}
+ul {
+  margin: 0 0 0 -20px;
+}
+
+.project {
+  background: radial-gradient(
+    592px at 48.2% 50%,
+    rgba(255, 255, 249, 0.6) 0%,
+    rgb(160, 199, 254) 74.6%
+  );
+  width: 700px;
+  height: 550px;
+  border: 2px solid rgb(0, 0, 0);
+  margin: 10px auto;
+  border-radius: 15px;
+}
+.row {
+  margin-right: 5px !important;
+  margin-left: 5px !important;
+  display: flex;
+}
+.search-form {
+  margin-bottom: 20px;
+  height: 44px;
+  background: radial-gradient(
+    592px at 48.2% 50%,
+    rgba(255, 255, 255, 0.404) 0%,
+    rgb(160, 199, 254) 74.6%
+  );
+
+  box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
+
+  margin: 0 auto;
+}
+
+.form-control {
+  height: 44px !important;
+  display: flex;
+  background: #fff;
+
+  box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
+  margin-left: 15px;
+}
+.btn {
+  height: 44px;
+  background: #fff;
+  box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
+  /* margin: 0 auto; */
+}
+
+.now {
+  padding: 10px 50px;
+  border: 2px solid rgb(0, 0, 0);
+  margin: 10px;
+  border-radius: 4px;
+}
+.temperature {
+  font-size: 45px;
+}
+.active{
+  color: black;
+  font-size: 30px
+}
+.change {
+  font-size: 20px
+  color: gray;
+}
+.emoji {
+  font-size: 40px;
+}
+
+.days {
+  margin: 0px 0 0 10px;
+}
+.col-2 {
+  text-align: center;
+  padding: 10px;
+  border: 2px solid rgb(0, 0, 0);
+  margin: 10px;
+  border-radius: 4px;
+}
