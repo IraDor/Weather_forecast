@@ -23,6 +23,10 @@ ul {
   margin: 0 0 0 -20px;
 }
 
+.link {
+  text-align: center;
+  font-size: 14px;
+}
 .project {
   background: radial-gradient(
     592px at 48.2% 50%,
@@ -77,12 +81,12 @@ ul {
 .temperature {
   font-size: 45px;
 }
-.active{
+.active {
   color: black;
-  font-size: 30px
+  font-size: 30px;
 }
 .change {
-  font-size: 20px
+  font-size: 20px;
   color: gray;
 }
 .emoji {
