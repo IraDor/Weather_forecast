@@ -28,33 +28,25 @@ ul {
   font-size: 14px;
 }
 .project {
-  background: radial-gradient(
-    592px at 48.2% 50%,
-    rgba(255, 255, 249, 0.6) 0%,
-    rgb(160, 199, 254) 74.6%
+  background: linear-gradient(
+    181.2deg,
+    rgb(108, 228, 250) 10.5%,
+    rgb(254, 254, 254) 86.8%
   );
   width: 700px;
-  height: 550px;
-  border: 2px solid rgb(0, 0, 0);
-  margin: 10px auto;
+  height: 500px;
+  border: 2px solid rgb(72, 164, 197);
+  margin: 20px auto;
   border-radius: 15px;
 }
 .row {
   margin-right: 5px !important;
   margin-left: 5px !important;
-  display: flex;
 }
 .search-form {
   margin-bottom: 20px;
   height: 44px;
-  background: radial-gradient(
-    592px at 48.2% 50%,
-    rgba(255, 255, 255, 0.404) 0%,
-    rgb(160, 199, 254) 74.6%
-  );
-
   box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
-
   margin: 0 auto;
 }
 
@@ -62,7 +54,6 @@ ul {
   height: 44px !important;
   display: flex;
   background: #fff;
-
   box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
   margin-left: 15px;
 }
@@ -74,19 +65,19 @@ ul {
 
 .now {
   padding: 10px 50px;
-  border: 2px solid rgb(0, 0, 0);
+  /* border: 2px solid rgb(0, 0, 0); */
   margin: 10px;
   border-radius: 4px;
 }
 .temperature {
-  font-size: 45px;
+  font-size: 55px;
 }
 .active {
   color: black;
   font-size: 30px;
 }
 .change {
-  font-size: 20px;
+  font-size: 40px;
   color: gray;
 }
 .emoji {
@@ -96,10 +87,10 @@ ul {
 .days {
   margin: 0px 0 0 10px;
 }
-.col-2 {
+.col {
   text-align: center;
   padding: 10px;
-  border: 2px solid rgb(0, 0, 0);
+  /* border: 2px solid rgb(0, 0, 0); */
   margin: 10px;
   border-radius: 4px;
 }
