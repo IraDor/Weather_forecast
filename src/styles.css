@@ -39,10 +39,7 @@ ul {
   margin: 20px auto;
   border-radius: 15px;
 }
-.row {
-  margin-right: 5px !important;
-  margin-left: 5px !important;
-}
+
 .search-form {
   margin-bottom: 20px;
   height: 44px;
@@ -65,7 +62,6 @@ ul {
 
 .now {
   padding: 10px 50px;
-  /* border: 2px solid rgb(0, 0, 0); */
   margin: 10px;
   border-radius: 4px;
 }
@@ -80,8 +76,9 @@ ul {
   font-size: 40px;
   color: gray;
 }
-.emoji {
-  font-size: 40px;
+.weather {
+  text-transform: capitalize;
+  text-align: center;
 }
 
 .days {
@@ -90,7 +87,6 @@ ul {
 .col {
   text-align: center;
   padding: 10px;
-  /* border: 2px solid rgb(0, 0, 0); */
   margin: 10px;
   border-radius: 4px;
 }

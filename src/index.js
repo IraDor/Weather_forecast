@@ -19,18 +19,17 @@ function formatTime(now) {
   }
   let time = `${day} ${now.getHours()}:${min}`;
   return time;
-  s;
 }
 
-function cityName(event) {
-  event.preventDefault();
-  let city = document.querySelector("#city-input");
-  let cityN = city.value;
-  let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityN}&units=metric&appid=${apiKey}`;
+function search(city) {
+  let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
   console.log(apiURL);
-  let cityH = document.querySelector("h1");
-  cityH.innerHTML = `${city.value}`;
   axios.get(`${apiURL}`).then(showTemperature);
+}
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
 }
 
 console.log(formatTime(now));
@@ -69,31 +68,35 @@ function handlePosition(position) {
 }
 
 function showTemperature(response) {
-  console.log(response.data);
   let temp = Math.round(response.data.main.temp);
-  console.log(temp);
   let humidity = response.data.main.humidity;
   let wind = Math.round(response.data.wind.speed);
   let feels = Math.round(response.data.main.feels_like);
   let pressure = response.data.main.pressure;
-  let weather = response.data.weather[0].main;
+  let weather = response.data.weather[0].description;
+  console.log(weather);
 
   let citiH = document.querySelector("h1");
-  citiH.innerHTML = `${response.data.name}`;
-
   let tempHead = document.querySelector("#temperature");
-  tempHead.innerHTML = `${temp}`;
-
   let weatherH = document.querySelector("#weather");
-  weatherH.innerHTML = `${weather}`;
-
   let characteristics = document.querySelector("ul");
+  let feel = document.querySelector("#feels");
+  let iconElemen = document.querySelector("#icon");
+
+  citiH.innerHTML = `${response.data.name}`;
+  iconElemen.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElemen.setAttribute("alt", `${weather}`);
+  tempHead.innerHTML = `${temp}`;
+  weatherH.innerHTML = `${weather}`;
   characteristics.innerHTML = `<li>Humidity ${humidity}%</li> <li>Wind ${wind} km/h</li>
   <li>Pressure ${pressure}hPa</li>`;
-  let feel = document.querySelector("#feels");
-  feel.innerHTML = `
-  Feels like ${feels}°`;
+  feel.innerHTML = `Feels like ${feels}°`;
 }
+
+search("Kyiv");
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
@@ -101,8 +104,8 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
-let formCity = document.querySelector("form");
-formCity.addEventListener("submit", cityName);
+let form = document.querySelector("form");
+form.addEventListener("submit", handleSubmit);
 
 let button = document.querySelector("#current");
 button.addEventListener("click", findCity);
