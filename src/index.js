@@ -1,4 +1,3 @@
-let celsiusTemperature = 20;
 let now = new Date();
 let apiKey = "df2db07229e49d3cee5cd0ac55a20dc7";
 
@@ -39,18 +38,19 @@ timeNow.innerHTML = `${formatTime(now)}`;
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
+  console.log(temperatureElement);
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
-  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  let fahrenheitTemperature = (celsiusTemp * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 
 function displayCelsiusTemperature(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-  celsiusLink.classList.add("active");
+  temperatureElement.innerHTML = Math.round(celsiusTemp);
   fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
 }
 
 function findCity() {
@@ -68,7 +68,7 @@ function handlePosition(position) {
 }
 
 function showTemperature(response) {
-  let temp = Math.round(response.data.main.temp);
+  let Temp = Math.round(response.data.main.temp);
   let humidity = response.data.main.humidity;
   let wind = Math.round(response.data.wind.speed);
   let feels = Math.round(response.data.main.feels_like);
@@ -76,26 +76,31 @@ function showTemperature(response) {
   let weather = response.data.weather[0].description;
   console.log(weather);
 
+  celsiusTemp = response.data.main.temp;
+
   let citiH = document.querySelector("h1");
   let tempHead = document.querySelector("#temperature");
   let weatherH = document.querySelector("#weather");
   let characteristics = document.querySelector("ul");
   let feel = document.querySelector("#feels");
   let iconElemen = document.querySelector("#icon");
+  let e = document.querySelector("#change");
 
   citiH.innerHTML = `${response.data.name}`;
+  tempHead.innerHTML = `${Temp}`;
   iconElemen.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElemen.setAttribute("alt", `${weather}`);
-  tempHead.innerHTML = `${temp}`;
   weatherH.innerHTML = `${weather}`;
   characteristics.innerHTML = `<li>Humidity ${humidity}%</li> <li>Wind ${wind} km/h</li>
   <li>Pressure ${pressure}hPa</li>`;
   feel.innerHTML = `Feels like ${feels}°`;
+  displayCelsiusTemperature(event);
 }
 
+let celsiusTemp = null;
 search("Kyiv");
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");

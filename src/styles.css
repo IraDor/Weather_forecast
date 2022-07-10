@@ -68,17 +68,23 @@ ul {
 .temperature {
   font-size: 55px;
 }
-.active {
-  color: black;
-  font-size: 30px;
-}
+
 .change {
-  font-size: 40px;
+  font-size: 20px;
   color: gray;
 }
+
 .weather {
   text-transform: capitalize;
   text-align: center;
+}
+.active {
+  color: black;
+  font-size: 30px;
+  cursor: default;
+}
+.active:hover {
+  text-decoration: none;
 }
 
 .days {
