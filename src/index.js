@@ -49,7 +49,7 @@ function displayForecast(response) {
           <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div> 
               <img src="http://openweathermap.org/img/wn/${
                 forecastDay.weather[0].icon
-              }.png" alt="" width="50">
+              }.png" alt="" width="60" class="image">
           <div class="weather-forecast-temperatures">
             <span class="weather-forecast-temperature=max">${Math.round(
               forecastDay.temp.max
@@ -83,24 +83,6 @@ timeNow.innerHTML = `${formatTime(now)}`;
 function showForecast(coords) {
   let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coords.lat}&lon=${coords.lon}&units=metric&appid=${apiKey}`;
   axios.get(apiURL).then(displayForecast);
-}
-
-function displayFahrenheitTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  console.log(temperatureElement);
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let fahrenheitTemperature = (celsiusTemp * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-}
-
-function displayCelsiusTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(celsiusTemp);
-  fahrenheitLink.classList.remove("active");
-  celsiusLink.classList.add("active");
 }
 
 function findCity() {
@@ -147,18 +129,11 @@ function showTemperature(response) {
   characteristics.innerHTML = `<li>Humidity ${humidity}%</li> <li>Wind ${wind} km/h</li>
   <li>Pressure ${pressure}hPa</li>`;
   feel.innerHTML = `Feels like ${feels}°`;
-  displayCelsiusTemperature(event);
   showForecast(response.data.coord);
 }
 
 let celsiusTemp = null;
 search("Kyiv");
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 let form = document.querySelector("form");
 form.addEventListener("submit", handleSubmit);
